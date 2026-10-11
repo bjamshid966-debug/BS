@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Бюро Случайностей</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=PT+Serif:wght@400;700&family=Marck+Script&display=swap&subset=cyrillic" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="#">Бюро Случайностей</a>
+  <nav><a href="#w1">Справки</a><a href="#w2">Советы</a><a href="#w3">Факты</a><a href="#w4">Колесо</a><a href="#w5">Игры</a><a href="#w6">Краски</a></nav>
+  <button class="btn sm" id="theme" aria-pressed="false">Ночная смена</button>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Бюро Случайностей</h1>
+    <p class="lead">Здесь выдают то, о чём вы не просили: справки, бабушкины советы, факты, судьбу и цвета. Очереди почти нет. Почти.</p>
+    <p><a class="btn" href="#w1">Пройти к окнам</a></p>
+  </div>
+  <div class="ticket">
+    <div class="tl">Электронная очередь</div>
+    <div id="tNum" aria-live="polite">А-000</div>
+    <div id="tInfo" aria-live="polite">Нажмите кнопку, чтобы получить номерок</div>
+    <button class="btn dark" id="take">Взять номерок</button>
+  </div>
+</section>
+
+<main class="wins">
+  <section class="win" id="w1"><div class="plate">Окно 1</div>
+    <h2>Справки</h2>
+    <p>Выдаём официальные подтверждения чего угодно. Подпись и печать — бесплатно.</p>
+    <button class="btn" id="cert">Выдать справку</button>
+    <div class="out" id="certOut" aria-live="polite"></div>
+  </section>
+
+  <section class="win" id="w2"><div class="plate">Окно 2</div>
+    <h2>Советы бабушки</h2>
+    <p>Бабушка в курсе всего. Консультация проходит без записи.</p>
+    <button class="btn" id="adv">Спросить бабушку</button>
+    <div class="out" id="advOut" aria-live="polite"></div>
+  </section>
+
+  <section class="win" id="w3"><div class="plate">Окно 3</div>
+    <h2>Факты</h2>
+    <p>Проверенные сведения. Ни одного выдуманного.</p>
+    <button class="btn" id="fact">Узнать факт</button>
+    <div class="out" id="factOut" aria-live="polite"></div>
+  </section>
+
+  <section class="win" id="w4"><div class="plate">Окно 4</div>
+    <h2>Колесо судьбы</h2>
+    <p>Не знаете, чем заняться? Постановление выдаёт колесо.</p>
+    <div class="wheelbox"><canvas id="wheel" width="320" height="320"></canvas></div>
+    <p class="center"><button class="btn" id="spin">Крутить</button></p>
+    <div class="out center" id="wheelOut" aria-live="polite"></div>
+  </section>
+
+  <section class="win" id="w5"><div class="plate">Окно 5</div>
+    <h2>Игры</h2>
+    <p>Кубики для тех, кто не может решить, и число для тех, кто любит угадывать.</p>
+    <div class="row"><button class="btn" id="d6">Кубик d6</button><button class="btn" id="d20">Кубик d20</button></div>
+    <div class="dice" id="diceOut" aria-hidden="true">⚀</div>
+    <div class="out" id="diceTxt" aria-live="polite"></div>
+    <hr>
+    <p>Я загадал число от 1 до 100.</p>
+    <form id="gForm" class="row">
+      <input id="gIn" type="number" min="1" max="100" required aria-label="Ваше число">
+      <button class="btn">Проверить</button>
+      <button class="btn ghost" type="button" id="gNew">Заново</button>
+    </form>
+    <div class="out" id="gOut" aria-live="polite">Попыток: 0</div>
+  </section>
+
+  <section class="win" id="w6"><div class="plate">Окно 6</div>
+    <h2>Краски</h2>
+    <p>Нажмите на цвет — он скопируется и перекрасит бюро.</p>
+    <button class="btn" id="palBtn">Новая палитра</button>
+    <div class="pal" id="pal"></div>
+    <div class="out" id="palOut" aria-live="polite"></div>
+  </section>
+
+  <section class="win wide" id="w7"><div class="plate">Журнал</div>
+    <h2>Журнал выдачи</h2>
+    <ul id="log"></ul>
+    <button class="btn ghost" id="clear">Очистить журнал</button>
+  </section>
+</main>
+
+<footer>© Бюро Случайностей. Любые совпадения случайны.</footer>
+<script src="script.js"></script>
+</body>
+</html>
